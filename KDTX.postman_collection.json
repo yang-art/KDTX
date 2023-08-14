@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "95d05371-3afd-4cd2-b3b1-25b17b9a75b8",
+		"name": "KDTX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"item": [
+				{
+					"name": "参数化",
+					"item": [
+						{
+							"name": "验证码",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://kdtx-test.itheima.net/api/captchaImage",
+									"protocol": "http",
+									"host": [
+										"kdtx-test",
+										"itheima",
+										"net"
+									],
+									"path": [
+										"api",
+										"captchaImage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "登录",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"    //获取响应数据\r",
+											"\r",
+											"//  提前token值并保存至环境变量中\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"HM_2023_test\",\r\n    \"code\": \"2\",\r\n    \"uuid\": \"{{uuid}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://kdtx-test.itheima.net/api/login",
+									"protocol": "http",
+									"host": [
+										"kdtx-test",
+										"itheima",
+										"net"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "验证码",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://kdtx-test.itheima.net/api/captchaImage",
+					"protocol": "http",
+					"host": [
+						"kdtx-test",
+						"itheima",
+						"net"
+					],
+					"path": [
+						"api",
+						"captchaImage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "登录成功",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    //获取响应数据\r",
+							"\r",
+							"//  提前token值并保存至环境变量中\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"HM_2023_test\",\r\n    \"code\": \"2\",\r\n    \"uuid\": \"{{uuid}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://kdtx-test.itheima.net/api/login",
+					"protocol": "http",
+					"host": [
+						"kdtx-test",
+						"itheima",
+						"net"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "课程添加成功",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"测试开发提升课01\",\r\n\"subject\": \"6\",\r\n\"price\": 899,\r\n\"applicablePerson\": \"2\",\r\n\"info\": \"测试开发提升课01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://kdtx-test.itheima.net/api/clues/course?Content-Type=application/json&Authorization",
+					"protocol": "http",
+					"host": [
+						"kdtx-test",
+						"itheima",
+						"net"
+					],
+					"path": [
+						"api",
+						"clues",
+						"course"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Authorization",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "合同上传成功",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://kdtx-test.itheima.net/api/common/upload",
+					"protocol": "http",
+					"host": [
+						"kdtx-test",
+						"itheima",
+						"net"
+					],
+					"path": [
+						"api",
+						"common",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "合同添加成功",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://kdtx-test.itheima.net/api/contract",
+					"protocol": "http",
+					"host": [
+						"kdtx-test",
+						"itheima",
+						"net"
+					],
+					"path": [
+						"api",
+						"contract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "合同列表查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"total\": 1,\r\n\"rows\": [\r\n{\r\n\"createBy\": \"admin\",\r\n\"createTime\": \"2023-01-05 08:58:51\",\r\n\"id\": \"7417444345987875\",\r\n\"contractNo\": \"HT10012004\",\r\n\"phone\": \"13612341888\",\r\n\"name\": \"测试888\",\r\n\"subject\": \"6\",\r\n\"channel\": \"0\",\r\n\"activityId\": 77,\r\n\"activityName\": \"代金券测试888\",\r\n\"courseId\": 99,\r\n\"courseName\": \"接口测试001\",\r\n\"status\": \"1\",\r\n\"fileName\": \"/profile/upload/2023/01/05/86e5ad-71375c3a8b9f.pdf\",\r\n\"coursePrice\": 998.0,\r\n\"discountType\": \"代金券\",\r\n\"order\": 898.0,\r\n\"deptId\": 103\r\n}\r\n],\r\n\"code\": 200,\r\n\"msg\": \"查询成功\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://kdtx-test.itheima.net/api/contract/list",
+					"protocol": "http",
+					"host": [
+						"kdtx-test",
+						"itheima",
+						"net"
+					],
+					"path": [
+						"api",
+						"contract",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
