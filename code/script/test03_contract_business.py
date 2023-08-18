@@ -3,6 +3,8 @@ import config
 from api.login import LoginAPI
 from api.course import CourseAPI
 from api.contract import ContractAPI
+import pytest
+import requests
 
 
 # 创建测试类
@@ -33,7 +35,7 @@ class TestContractBusiness:
         # 登录
         login_data = {
             "username": "admin",
-            "password": "admin123",
+            "password": "HM_2023_test",
             "code": "2",
             "uuid": res_v.json().get("uuid")
         }
@@ -46,7 +48,8 @@ class TestContractBusiness:
 
     # 2、课程新增成功
     def test02_add_course(self):
-        add_data = { "name": "测试开发提升课01", "subject": "6","price": 899,"applicablePerson": "2",  "info": "测试开发提升课01"}
+        add_data = {"name": "测试开发提升课01", "subject": "6", "price": 899, "applicablePerson": "2",
+                    "info": "测试开发提升课01"}
         response = self.course_api.add_course(test_data=add_data, token=TestContractBusiness.token)
         print(response.json())
 
@@ -61,11 +64,7 @@ class TestContractBusiness:
     # 4、合同新增成功
     def test04_add_contract(self):
         # contractNo: 数据唯一
-        add_data = { "name": "测试888", "phone": "13612345678", "contractNo": "HT20230007", "subject": "6", "courseId": " 99", "channel": "0", "activityId": 77, "fileName": "xxx"}
+        add_data = {"name": "测试888", "phone": "13612345678", "contractNo": "HT20230207", "subject": "6",
+                    "courseId": " 99", "channel": "0", "activityId": 77, "fileName": "xxx"}
         response = self.contract_api.add_contract(test_data=add_data, token=TestContractBusiness.token)
         print(response.json())
-
-
-
-
-
